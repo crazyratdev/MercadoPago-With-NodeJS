@@ -16,11 +16,11 @@ Before starting, I want to make it clear that I'm actually a newbie on using thi
 
 ## 2. Requirements
 
-Not a lot of things, so I'll be showing the packages that you'll need, and the npm comand to install'em.
+Not a lot of things, so I'll be showing the packages that you'll need, and the npm command to install'em.
 
 Packages:
 
-  - Mercadopago: ```npm i mercadopago```
+  - mercadopago: ```npm i mercadopago```
   - express: ```npm i express```
   - ejs: ```npm i ejs```
   - nodemon: ```npm i -D nodemon```
@@ -62,17 +62,17 @@ app.listen(8000, console.log("Server running on: http://localhost:8000"))
 ```
 
 - `import express from 'express'`: Import the express package.
-- `import routes from './routes'`: Import the routes file, wich we'll create later.
+- `import routes from './routes'`: Import the routes file, which we'll create later.
 - `const app = express()`: Create a new express server.
 - `app.set('view engine', 'ejs')`: Set the "HTML" "interpreter" to ejs.
-- `app.set('views', './views')`: Set the folder wich contains the ejs files.
+- `app.set('views', './views')`: Set the folder which contains the ejs files.
 - `app.use(express.static('./static'))`: Set the static files folder, like .css and .js (frontend).
 - `app.use(express.json())`: Use JSON parse on POSTs.
 - `app.use(routes)`: Use the routes set on the routes file.
 - `app.listen(8000, log("Server runnning...")`: Make the server listen on localhost port 8000, and then log that the server is listening.
 
 ---
-Create, in your project root folder, 2 more folders, one called `static`, and the other one `views`.
+Create, in your project's root folder, 2 more folders, one called `static`, and the other one `views`.
 
 Inside `static`, create a css.css file, and a `frontend.js` file. Don't need to type anything inside'em for now.
 
@@ -89,18 +89,18 @@ router.get('/', (req, res) => res.render('index'))
 export default router
 ```
 
-- Here we imported the express, and created a new Router wich will take care of the routes of our application. Then we set the home route to render the index.ejs file. Note that we don't need to type it's entire path, because the express server is already serving us our views files.
+- Here we imported the express, and created a new Router which will take care of the routes of our application. Then we set the home route to render the index.ejs file. Note that we don't need to type it's entire path, because the express server is already serving us our views files.
 
 Now, just run the start script created before, and open a new tab in your browser going to the http://localhost:8000.
 ## 4. Initialize the cardForm
 
-Now let's start using the mercadopago's API. Open your view file, and import the mercadopago's SDK. This file will take care of getting all the card infos, and generating a secure token wich we'll use to make the payments.
+Now let's start using the mercadopago's API. Open your view file, and import the mercadopago's SDK. This file will take care of getting all the card infos, and generating a secure token which we'll use to make the payments.
 
-Put this on the <head> section:
+Put this on the `<head>` section:
 
 `<script src="https://sdk.mercadopago.com/js/v2"></script>`
 
-Now we must set our credentials, wich you can get here: https://www.mercadopago.com.br/developers/panel/app
+Now we must set our credentials, which you can get here: https://www.mercadopago.com.br/developers/panel/app
 
 Login in your account, and go to "Your Integrations", and select your integration. From there, go to "Test Credentials", and copy your Public Key.
 
@@ -372,4 +372,4 @@ Here I create a const of the result of the fetch() (using await), and logged it.
 
 ---
 
-## That's it for now, if you have any questions, feel free to ask. I really hope that you understood the mercadopagos's API basic usage, and, once again, I strongly recommend reading the official documentation(https://www.mercadopago.com.br/developers/en/docs/checkout-api/integration-configuration/card/integrate-via-cardform#editor_8). There you can find more ways to integrate it, some of them are even simple, but requires SSL, and others more difficult, so please take a look at it. Now, good bye! ;)
+That's it for now, if you have any questions, feel free to ask. I really hope that you understood the mercadopagos's API basic usage, and, once again, I strongly recommend reading the official documentation(https://www.mercadopago.com.br/developers/en/docs/checkout-api/integration-configuration/card/integrate-via-cardform#editor_8). There you can find more ways to integrate it, some of them are even simple, but requires SSL, and others more difficult, so please take a look at it. Now, good bye! ;)
