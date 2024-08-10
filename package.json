@@ -9,12 +9,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@mercadopago/sdk-js": "^0.0.3",
-    "dotenv": "^16.4.5",
+  "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "mercadopago": "^2.0.11",
+    "nodemon": "^3.1.4",
+    "sucrase": "^3.35.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.4",
     "sucrase": "^3.35.0"
   }
