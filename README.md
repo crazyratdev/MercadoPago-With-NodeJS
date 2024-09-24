@@ -25,6 +25,8 @@ Packages:
   - ejs: ```npm i ejs```
   - nodemon: ```npm i -D nodemon```
   - sucrase: ```npm i -D sucrase```
+
+  - Full Command: ```npm i mercadopago express ejs && npm i -D nodemon sucrase```
 ## 3. Configure the environment
 
 I'll be using ES Modules (import export), to do that so, create a nodemon.json file in your project's root folder, and type the code below:
@@ -155,7 +157,7 @@ Add the css.css import on the index.ejs too, and paste this in it to add some cu
 
 ---
 
-Now, on the frontend file, copy paste (just remeber to look for incorrect closures):
+Now, on the frontend file, copy paste (just remeber to look for incorrect closures). Remembering that you must import this file inside the ```index.ejs```file, and in my tests, I noticed that sometimes this file tries mounting the form, before the mercadopago's SDK loads everything, so put a ```defer``` as a parameter on the ```<script src="frontend.js" defer \>```:
 
 ```
 const cardForm = mp.cardForm({
@@ -274,6 +276,7 @@ To do it, open your routes, and add the following: `import { Payment, MercadoPag
 
 ```
 const client = new MercadoPagoConfig({ accessToken: '<ACCESS_TOKEN>' });
+const payment = new Payment(client)
 
 payment.create({
     body: { 
